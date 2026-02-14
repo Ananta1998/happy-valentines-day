@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananta | Secure Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 overflow-x-hidden font-sans">
+
+    <div id="auth-overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950 px-6">
+        <div class="max-w-md w-full text-center bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-2xl">
+            <div class="mb-4 text-blue-500"><i data-lucide="fingerprint" class="mx-auto w-12 h-12"></i></div>
+            <h2 class="text-xl font-bold mb-4 mono-font">Identity Verification</h2>
+            <p id="question-text" class="text-slate-400 mb-6 italic">Loading security challenge...</p>
+            <input type="text" id="auth-answer" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-3 text-center mb-4 focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Your answer...">
+            <button onclick="verifyAccess()" class="w-full bg-blue-600 hover:bg-blue-500 py-3 rounded-lg font-bold transition-all">Verify Access</button>
+            <p id="error-msg" class="text-red-500 mt-4 hidden text-xs font-mono">Incorrect. Try again, Ananta.</p>
+        </div>
+    </div>
+
+    <main id="content" class="hidden">
+        <nav class="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md border-b border-slate-800 z-40 px-6 py-4 flex justify-between items-center">
+            <div class="font-bold tracking-tighter text-blue-400">SHIVANG_AND_ANANTA</div>
+            <div id="nav-timer" class="mono-font text-sm font-semibold text-slate-300 bg-slate-800 px-3 py-1 rounded-full border border-slate-700">
+                UPTIME: 0 DAYS
+            </div>
+        </nav>
+
+        <section class="pt-32 pb-20 px-6 max-w-4xl mx-auto">
+            <div class="terminal-window mb-16 shadow-2xl">
+                <div class="terminal-header flex justify-between px-4 py-2 bg-slate-800">
+                    <div class="flex gap-2"><span class="w-3 h-3 bg-red-500 rounded-full"></span><span class="w-3 h-3 bg-yellow-500 rounded-full"></span><span class="w-3 h-3 bg-green-500 rounded-full"></span></div>
+                    <span class="text-xs font-mono text-slate-500">shivang@google:~/heart</span>
+                </div>
+                <div class="p-6 font-mono text-blue-300 text-sm md:text-base min-h-[200px]">
+                    <span class="text-green-500">shivang:~$</span> <span id="typed-msg"></span>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/50 p-8 rounded-2xl border border-slate-800">
+                <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
+                    <i data-lucide="clipboard-list" class="text-blue-400"></i> Our 2026 Roadmap
+                </h3>
+                <div class="flex gap-2 mb-6">
+                    <input type="text" id="todo-input" class="flex-1 bg-slate-800 border border-slate-700 rounded-lg px-4 py-2 outline-none focus:border-blue-500" placeholder="Add a new goal...">
+                    <button onclick="addTodo()" class="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-500 transition-all"><i data-lucide="plus"></i></button>
+                </div>
+                <ul id="todo-list" class="space-y-3">
+                    </ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
